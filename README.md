@@ -22,7 +22,7 @@ grunt.loadNpmTasks('grunt-filessrc');
 
 ## Usage
 
-In your project's Gruntfile, use `filesSrc()` to get an array of source files for any previously-defined task.
+In your project's Gruntfile, use `grunt.task.filesSrc()` to get an array of source files for any previously-defined task.
 
 ```js
 module.exports = function(grunt) {
@@ -51,11 +51,11 @@ module.exports = function(grunt) {
     }
   });
 
-  // Configs that use filesSrc() must be defined after grunt.initConfig()
+  // Configs that use grunt.task.filesSrc() must be defined after grunt.initConfig()
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.config('watch', {
     copy: {
-      files: filesSrc('copy.example'),
+      files: grunt.task.filesSrc('copy.example'),
       tasks: ['copy']
     }
   });
