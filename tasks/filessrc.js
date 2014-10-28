@@ -12,6 +12,9 @@ module.exports = function(grunt) {
 
   var filesSrc = function(configName) {
     var config = grunt.config(configName);
+    if (typeof config === 'undefined') {
+      throw grunt.util.error('Unable to find config \'' + configName + '\'');
+    }
     var tasks = grunt.task.normalizeMultiTaskFiles(config);
     return grunt.util._(tasks).chain().pluck('src').flatten().uniq().value();
   };

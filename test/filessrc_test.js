@@ -22,6 +22,18 @@ exports.filessrc = {
     test.done();
   },
 
+  noErrors: function(test) {
+    test.expect(1);
+    test.doesNotThrow(function() { sortedFiles('run'); });
+    test.done();
+  },
+
+  nonexistentTaskError: function(test) {
+    test.expect(1);
+    test.throws(function() { sortedFiles('nonexistentTask'); });
+    test.done();
+  },
+
   compact: function(test) {
     test.expect(2);
     test.deepEqual(sortedFiles(['run', 'dist/built.js']), ['src/file1.js'], 'should work with "compact" format (1)');
