@@ -8,6 +8,8 @@
 
 'use strict';
 
+var _ = require('underscore');
+
 module.exports = function(grunt) {
 
   var filesSrc = function(configName) {
@@ -16,7 +18,7 @@ module.exports = function(grunt) {
       throw grunt.util.error('Unable to find config \'' + configName + '\'');
     }
     var tasks = grunt.task.normalizeMultiTaskFiles(config);
-    return grunt.util._(tasks).chain().pluck('src').flatten().uniq().value();
+    return _(tasks).chain().pluck('src').flatten().uniq().value();
   };
 
   grunt.task.filesSrc = filesSrc.bind(grunt.task);
