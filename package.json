@@ -1,7 +1,7 @@
 {
   "name": "grunt-filessrc",
   "description": "access a task's filesSrc (expanded files) from another config",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/eheikes/grunt-filessrc",
   "license": "Apache-2.0",
   "author": {
